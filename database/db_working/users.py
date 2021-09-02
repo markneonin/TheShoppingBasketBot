@@ -9,13 +9,11 @@ def create_user(user_id, user_name):
 
     user = tables.User(user_id=user_id, user_name=user_name)
     access = tables.Access(user_id=user_id, access=user_id)
-    status = tables.UserStatus(user_id=user_id)
     settings = tables.Settings(user_id=user_id)
 
     try:
         session.add(user)
         session.add(access)
-        session.add(status)
         session.add(settings)
         session.commit()
     except Exception as e:
